@@ -1,0 +1,42 @@
+//Section 13
+//Delegating Constructors
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+    
+class Player{
+private:
+    //atribute
+    string name;
+    int health;
+    int xp;
+
+public:
+    //methord
+    Player();
+    Player(string name_val);
+    Player(string name_val, int health_val, int xp_val);
+};
+
+Player::Player()
+    : Player{"None" , 0 , 0}{
+        cout<<"No arg constructer call"<<endl;
+    }
+Player::Player(string name_val)
+    : Player{name_val, 0, 0}{
+        cout<<"string arg constructer call"<<endl;
+    }
+Player::Player(string name_val, int health_val, int xp_val)
+    : name{name_val}, health{health_val}, xp{xp_val}{
+        cout<<"Three arg constructer call"<<endl;
+    }
+
+    
+int main(){
+    Player enemy;
+    Player frank("Frank");
+    Player hero("Arc", 100, 2);
+}
